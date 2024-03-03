@@ -5,12 +5,13 @@ const crypto = require('crypto');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const URI = process.env.MONGO_URI || process.env.MONGODB_URI
+const RED = process.env.ACF
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: RED ||'http://localhost:3000'
 })); // Apply CORS middleware
 
 // Parse JSON bodies
