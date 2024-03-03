@@ -5,13 +5,13 @@ const crypto = require('crypto');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const URI = process.env.MONGO_URI || process.env.MONGODB_URI
-const RED = process.env.ACF
+const RED = process.env.ACF 
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(cors({
-  origin: RED ||'https://tega-d.onrender.com'
+  origin: RED || process.env.UR
 })); // Apply CORS middleware
 
 // Parse JSON bodies
