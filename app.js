@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const URI = process.env.MONGO_URI || process.env.MONGODB_URI
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -16,7 +17,7 @@ app.use(cors({
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
